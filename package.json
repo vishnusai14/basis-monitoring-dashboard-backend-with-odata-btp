@@ -1,0 +1,19 @@
+{
+  "name": "back-end-with-odata-btp",
+  "version": "1.0.0",
+  "description": "Backend node js Server to fetch Odata service in BTP",
+  "license": "ISC",
+  "author": "Vishnu Prasanna",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.17.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
