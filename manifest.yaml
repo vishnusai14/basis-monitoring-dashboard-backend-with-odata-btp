@@ -1,7 +1,6 @@
 ---
 applications:
 - name: back-end-with-odata-btp
-  random-route: true
   path: .
   memory: 128M
   buildpacks:
