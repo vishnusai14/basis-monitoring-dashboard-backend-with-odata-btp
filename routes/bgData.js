@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { initOdataClient, callODataService } = require("../odataClient/client");
+const { initOdataClient, callODataService } = require("../btp/odataClient");
 
 
 
 router.get("/", async (req, res) => {
     try {
-
         const client = await initOdataClient();
         const result = await callODataService(`${process.env.BASE_URL}/BgJobDetailsSet`, req.query, client.destinationConfig, client.connectivityAccessToken);
 
