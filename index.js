@@ -5,6 +5,7 @@ const bgDataRoutes = require("./routes/bgData");
 const lockDetailsRoutes = require("./routes/lockDetails");
 const serverDetailsRoutes = require("./routes/serverDetails");
 const osInfoRoutes = require("./routes/osInfo");
+const osDataRoutes = require("./routes/osData");
 const app = express();
 
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use("/bgdata", bgDataRoutes);
 app.use("/lockdetails", lockDetailsRoutes);
 app.use("/serverdetails", serverDetailsRoutes);
 app.use("/osInfo", osInfoRoutes);
+app.use("/osData", osDataRoutes);
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => {
