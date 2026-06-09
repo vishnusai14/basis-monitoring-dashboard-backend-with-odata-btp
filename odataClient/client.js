@@ -89,7 +89,7 @@ const callODataService = async (resource, params, destination, connectivityToken
   
     const odataUrl = `${destination.URL}${resource}`;
     const proxy = {
-        host: CONNECT_PROXY_HOST,
+        host: process.env.ENV == 'dev' ? '127.0.0.1' : CONNECT_PROXY_HOST, //CONNECT_PROXY_HOST, Need to change while deploying its
         port: parseInt(CONNECT_PROXY_PORT, 10)
     };
 

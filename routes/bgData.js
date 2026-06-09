@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
 
         const client = await initOdataClient();
         const result = await callODataService(`${process.env.BASE_URL}/BgJobDetailsSet`, req.query, client.destinationConfig, client.connectivityAccessToken);
+
         res.status(200).send(result.data);
 
     } catch (err) {

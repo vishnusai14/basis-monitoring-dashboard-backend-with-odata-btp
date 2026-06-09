@@ -95,9 +95,11 @@ router.get("/", async (req, res) => {
             (err, result) => {
                 if (err) {
                     console.log(err);
+                    res.setHeader("Access-Control-Allow-Origin", "*")
                     res.status(500).send({ err });
 
                 } else {
+                    res.setHeader("Access-Control-Allow-Origin", "*")
                     res.status(200).send(JSON.stringify(result, null, 2))
                     console.log(JSON.stringify(result, null, 2));
                 }
