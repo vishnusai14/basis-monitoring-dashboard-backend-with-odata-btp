@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { initOdataClient, callODataService } = require("../btp/odataClient");
+const { callOnPremService } = require("../btp/onPremClient");
 
 
 
 router.get("/", async (req, res) => {
     try {
 
-        const client = await initOdataClient();
-        const result = await callODataService(`${process.env.BASE_URL}/lockDetailsSet`, req.query, client.destinationConfig, client.connectivityAccessToken);
+      
+        const result = await callOnPremService("A4HCLNT001", `${process.env.BASE_URL}/lockDetailsSet`, req.query, "GET");
         res.status(200).send(result.data);
 
     } catch (err) {

@@ -5,3 +5,7 @@ applications:
   memory: 128M
   buildpacks:
   - nodejs_buildpack
+  services:
+  - destinationService
+  - connectivityService
+  - XUSSA

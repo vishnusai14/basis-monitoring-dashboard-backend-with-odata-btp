@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { initOdataClient, callODataService } = require("../btp/odataClient");
+const { callOnPremService } = require("../btp/onPremClient");
 
 
 
 router.get("/", async (req, res) => {
     try {
-        const client = await initOdataClient();
-        const result = await callODataService(`${process.env.BASE_URL}/BgJobDetailsSet`, req.query, client.destinationConfig, client.connectivityAccessToken);
-
+        
+        const result = await callOnPremService("A4HCLNT001", `${process.env.BASE_URL}/BgJobDetailsSet`, req.query, "GET");
         res.status(200).send(result.data);
 
     } catch (err) {
@@ -19,9 +18,8 @@ router.get("/", async (req, res) => {
 
 router.get("/get-summary", async (req, res) => {
     try {
-        const client = await initOdataClient();
-        const result = await callODataService(`${process.env.BASE_URL}/BgJobDetailsSummarySet`, req.query, client.destinationConfig, client.connectivityAccessToken);
 
+        const result = await callOnPremService("A4HCLNT001",`${process.env.BASE_URL}/BgJobDetailsSummarySet`, req.query, "GET");
         res.status(200).send(result.data);
 
     } catch (err) {
@@ -34,9 +32,7 @@ router.get("/get-summary", async (req, res) => {
 
 router.get("/get-logs", async (req, res) => {
     try {
-        const client = await initOdataClient();
-        const result = await callODataService(`${process.env.BASE_URL}/BgJobLogDetailsSet`, req.query, client.destinationConfig, client.connectivityAccessToken);
-
+        const result = await callOnPremService("A4HCLNT001",`${process.env.BASE_URL}/BgJobLogDetailsSet`, req.query, "GET");
         res.status(200).send(result.data);
 
     } catch (err) {
