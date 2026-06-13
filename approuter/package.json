@@ -1,0 +1,15 @@
+{
+  "name": "approuter",
+  "version": "1.0.0",
+  "description": "App Router to fetch the static files and for authentication purposes",
+  "license": "ISC",
+  "author": "Vishnu Prasanna",
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js"
+
+  },
+  "dependencies": {
+    "@sap/approuter": "^22.0.1",
+    "@sap/xsenv": "^6.2.1"
+  }
+}

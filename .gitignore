@@ -25,3 +25,8 @@ yarn-error.log*
 
 package-lock.json
 default-env.json
+
+/approuter/build
+/approuter/node_modules
+/approuter/default_env.json
+/approuter/pacakge-lock.json

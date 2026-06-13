@@ -5,7 +5,7 @@ require("@sap/xsenv").loadEnv();
 const bgDataRoutes = require("./routes/bgData");
 const lockDetailsRoutes = require("./routes/lockDetails");
 const serverDetailsRoutes = require("./routes/serverDetails");
-// const osInfoRoutes = require("./routes/osInfo");
+const path = require("path");
 const osDataRoutes = require("./routes/osData");
 const app = express();
 
@@ -16,11 +16,13 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cors({
-    origin: 'https://port3002-workspaces-ws-raeat.us10.trial.applicationstudio.cloud.sap',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
+
+
 
 
 app.get("/", (req, res) => {
@@ -35,7 +37,17 @@ app.use("/serverdetails", serverDetailsRoutes);
 // app.use("/osInfo", osInfoRoutes);
 app.use("/osData", osDataRoutes);
 
-const port = process.env.PORT || 3005;
+
+
+app.use("/api/bgdata", bgDataRoutes);
+app.use("/api/lockdetails", lockDetailsRoutes);
+app.use("/api/serverdetails", serverDetailsRoutes);
+// app.use("/osInfo", osInfoRoutes);
+app.use("/api/osData", osDataRoutes);
+
+
+
+const port = process.env.PORT || 3005
 app.listen(port, () => {
 
     console.log(`Listening to the Port ${port}`)

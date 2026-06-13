@@ -1,0 +1,17 @@
+{
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "source": "^/api/(.*)$",
+      "target": "$1",
+      "destination": "node-backend-api",
+      "authenticationType": "none"
+    },
+    {
+      "source": "^/(.*)$",
+      "target": "$1",
+      "localDir": "build",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}
