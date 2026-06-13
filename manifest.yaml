@@ -1,11 +1,32 @@
 ---
 applications:
-- name: back-end-with-odata-btp
-  path: .
-  memory: 128M
-  buildpacks:
-  - nodejs_buildpack
-  services:
-  - destinationService
-  - connectivityService
-  - XUSSA
+  # 1. Your Node.js Backend Application
+  - name: back-end-with-odata-btp
+    path: .
+    memory: 128M
+    buildpacks:
+      - nodejs_buildpack
+    services:
+      - destinationService
+      - connectivityService
+      - XUSSA
+
+  # 2. Your Approuter Application
+  - name: my-approuter
+    path: ./approuter # Points to the folder containing your approuter code and package.json
+    memory: 128M
+    buildpacks:
+      - nodejs_buildpack
+    env:
+      destinations: >
+        [
+          {
+            "name": "node-backend-api",
+            "url": "https://back-end-with-odata-btp.cfapps.eu10.hana.ondemand.com",
+            "forwardAuthToken": true
+          }
+        ]
+    services:
+      - destinationService
+      - connectivityService
+      - XUSSA

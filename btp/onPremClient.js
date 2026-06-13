@@ -8,7 +8,7 @@ const newHttpsAgent = new https.Agent({keepAlive: false});
 const callOnPremService = async (destinationName, resource, params, method) => {
  const data = await executeHttpRequest(
         { destinationName: destinationName }, 
-        { method: method, params:params,  url: resource, headers: { "SAP-Connectivity-SCC-Location_ID": "tx-trial"}, httpAgent: newHttpAgent, httpsAgent: newHttpsAgent},
+        { method: method, params:params,  url: resource, httpAgent: newHttpAgent, httpsAgent: newHttpsAgent},
         
     
     );

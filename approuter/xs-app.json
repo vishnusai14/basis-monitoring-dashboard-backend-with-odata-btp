@@ -11,7 +11,7 @@
       "source": "^/(.*)$",
       "target": "$1",
       "localDir": "build",
-      "authenticationType": "xsuaa"
+      "authenticationType": "none"
     }
   ]
 }

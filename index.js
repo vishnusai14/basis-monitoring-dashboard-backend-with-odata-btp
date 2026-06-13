@@ -5,6 +5,7 @@ require("@sap/xsenv").loadEnv();
 const bgDataRoutes = require("./routes/bgData");
 const lockDetailsRoutes = require("./routes/lockDetails");
 const serverDetailsRoutes = require("./routes/serverDetails");
+const dumpInfoRoutes = require("./routes/dumpInfo");
 const path = require("path");
 const osDataRoutes = require("./routes/osData");
 const app = express();
@@ -36,6 +37,7 @@ app.use("/lockdetails", lockDetailsRoutes);
 app.use("/serverdetails", serverDetailsRoutes);
 // app.use("/osInfo", osInfoRoutes);
 app.use("/osData", osDataRoutes);
+app.use("/dumpInfo", dumpInfoRoutes);
 
 
 
@@ -44,6 +46,7 @@ app.use("/api/lockdetails", lockDetailsRoutes);
 app.use("/api/serverdetails", serverDetailsRoutes);
 // app.use("/osInfo", osInfoRoutes);
 app.use("/api/osData", osDataRoutes);
+app.use("/api/dumpInfo", dumpInfoRoutes);
 
 
 
