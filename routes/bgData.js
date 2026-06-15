@@ -2,13 +2,21 @@ const express = require("express");
 const router = express.Router();
 const { callOnPremService } = require("../btp/onPremClient");
 
+const passport = require("passport");
+
 
 
 router.get("/", async (req, res) => {
     try {
-        
-        const result = await callOnPremService("A4HCLNT001", `${process.env.BASE_URL}/BgJobDetailsSet`, req.query, "GET");
+
+
+        const userJWT = req.headers?.authorization?.split(' ')[1];
+
+
+        const result = await callOnPremService("A4HTEST", `${process.env.BASE_URL}/BgJobDetailsSet`, req.query, "GET", userJWT);
         res.status(200).send(result.data);
+
+
 
     } catch (err) {
         console.error("ODATA Error:", err);
@@ -19,7 +27,10 @@ router.get("/", async (req, res) => {
 router.get("/get-summary", async (req, res) => {
     try {
 
-        const result = await callOnPremService("A4HCLNT001",`${process.env.BASE_URL}/BgJobDetailsSummarySet`, req.query, "GET");
+        const userJWT = req.headers?.authorization?.split(' ')[1];
+
+
+        const result = await callOnPremService("A4HTEST", `${process.env.BASE_URL}/BgJobDetailsSummarySet`, req.query, "GET", userJWT);
         res.status(200).send(result.data);
 
     } catch (err) {
@@ -32,7 +43,9 @@ router.get("/get-summary", async (req, res) => {
 
 router.get("/get-logs", async (req, res) => {
     try {
-        const result = await callOnPremService("A4HCLNT001",`${process.env.BASE_URL}/BgJobLogDetailsSet`, req.query, "GET");
+        const userJWT = req.headers?.authorization?.split(' ')[1];
+
+        const result = await callOnPremService("A4HTEST", `${process.env.BASE_URL}/BgJobLogDetailsSet`, req.query, "GET", userJWT);
         res.status(200).send(result.data);
 
     } catch (err) {

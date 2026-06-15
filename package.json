@@ -10,18 +10,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-node": "node index.js",
     "start": "node index.js"
-
   },
   "dependencies": {
     "@sap-cloud-sdk/connectivity": "^4.7.0",
     "@sap-cloud-sdk/http-client": "^4.7.0",
     "@sap/approuter": "^22.0.1",
     "@sap/xsenv": "^6.2.1",
+    "@sap/xssec": "^4.13.0",
     "axios": "^1.17.0",
     "cors": "^2.8.6",
     "crypto-js": "^4.2.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "passport": "^0.7.0",
     "soap": "^1.9.3"
   }
 }

@@ -22,11 +22,11 @@ applications:
         [
           {
             "name": "node-backend-api",
-            "url": "https://back-end-with-odata-btp.cfapps.eu10.hana.ondemand.com",
+            "url": "https://back-end-with-odata-btp.cfapps.us10-001.hana.ondemand.com",
             "forwardAuthToken": true
           }
         ]
     services:
       - destinationService
       - connectivityService
-      - XUSSA
+      - routerxussa

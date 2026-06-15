@@ -1,0 +1,10 @@
+{
+  "xsappname": "my-approuter-app",
+  "tenant-mode": "dedicated",
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "http://locahost:5000/index.html"
+    ],
+    "identity-provider": "sap.default" 
+  }
+}

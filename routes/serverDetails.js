@@ -8,11 +8,15 @@ const { callOnPremService } = require("../btp/onPremClient");
 router.get("/", async (req, res) => {
     try {
 
-        const result = await callOnPremService("A4HCLNT001",`${process.env.BASE_URL}/serverDetailsSet`, req.query, "GET");
+        const userJWT = req.headers?.authorization?.split(' ')[1];
+
+
+
+        const result = await callOnPremService("A4HTEST", `${process.env.BASE_URL}/serverDetailsSet`, req.query, "GET", userJWT);
         res.status(200).send(result.data);
 
     } catch (err) {
-        console.error("ODATA Error:", err);s
+        console.error("ODATA Error:", err);
         res.status(500).send(err.message || "Error calling ODATA service");
     }
 });
@@ -20,7 +24,10 @@ router.get("/", async (req, res) => {
 
 router.get("/get-wp-details", async (req, res) => {
     try {
-        const result = await callOnPremService("A4HCLNT001", `${process.env.BASE_URL}/workProcessDetailsSet`, req.query, "GET");
+
+        const userJWT = req.headers?.authorization?.split(' ')[1];
+
+        const result = await callOnPremService("A4HTEST", `${process.env.BASE_URL}/workProcessDetailsSet`, req.query, "GET", userJWT);
         res.status(200).send(result.data);
 
     } catch (err) {

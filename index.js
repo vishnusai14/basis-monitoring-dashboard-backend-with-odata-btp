@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-require("@sap/xsenv").loadEnv();
+const xsenv = require("@sap/xsenv");
 const bgDataRoutes = require("./routes/bgData");
 const lockDetailsRoutes = require("./routes/lockDetails");
 const serverDetailsRoutes = require("./routes/serverDetails");
@@ -10,10 +10,26 @@ const path = require("path");
 const osDataRoutes = require("./routes/osData");
 const app = express();
 
+const { v3: {JWTStrategy} } = require("@sap/xssec");
+
+const passport = require("passport");
+
+
+
+xsenv.loadEnv();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+const services = xsenv.getServices({xsuaa:{tag:'xsuaa'}});
+
+console.log(services);
+
+
+passport.use("JWT", new JWTStrategy(services.xsuaa));
+app.use(passport.initialize());
+const authMiddleware = passport.authenticate("JWT", { session: false });
 
 
 app.use(cors({
@@ -32,21 +48,21 @@ app.get("/", (req, res) => {
 })
 
 
-app.use("/bgdata", bgDataRoutes);
-app.use("/lockdetails", lockDetailsRoutes);
-app.use("/serverdetails", serverDetailsRoutes);
+app.use("/bgdata",  authMiddleware, bgDataRoutes);
+app.use("/lockdetails", authMiddleware,  lockDetailsRoutes);
+app.use("/serverdetails", authMiddleware, serverDetailsRoutes);
 // app.use("/osInfo", osInfoRoutes);
-app.use("/osData", osDataRoutes);
-app.use("/dumpInfo", dumpInfoRoutes);
+app.use("/osData", authMiddleware, osDataRoutes);
+app.use("/dumpInfo", authMiddleware, dumpInfoRoutes);
 
 
 
-app.use("/api/bgdata", bgDataRoutes);
-app.use("/api/lockdetails", lockDetailsRoutes);
-app.use("/api/serverdetails", serverDetailsRoutes);
+app.use("/api/bgdata", authMiddleware, bgDataRoutes);
+app.use("/api/lockdetails", authMiddleware, lockDetailsRoutes);
+app.use("/api/serverdetails", authMiddleware, serverDetailsRoutes);
 // app.use("/osInfo", osInfoRoutes);
-app.use("/api/osData", osDataRoutes);
-app.use("/api/dumpInfo", dumpInfoRoutes);
+app.use("/api/osData", authMiddleware, osDataRoutes);
+app.use("/api/dumpInfo", authMiddleware, dumpInfoRoutes);
 
 
 
