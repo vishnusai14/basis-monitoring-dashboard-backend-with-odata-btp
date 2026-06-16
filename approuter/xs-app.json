@@ -6,13 +6,15 @@
       "source": "^/api/(.*)$",
       "target": "$1",
       "destination": "node-backend-api",
-      "authenticationType": "none"
+      "authenticationType": "xsuaa",
+      "scope": "$XSAPPNAME.Admin"
     },
     {
       "source": "^/(.*)$",
       "target": "$1",
       "localDir": "build",
-      "authenticationType": "xsuaa"
+      "authenticationType": "xsuaa",
+      "scope": "$XSAPPNAME.Viewer"
     }
   ]
 }
