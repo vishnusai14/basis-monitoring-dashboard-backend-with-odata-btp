@@ -9,7 +9,7 @@ applications:
     services:
       - destinationService
       - connectivityService
-      - xussa-with-role-template
+      - xsuaa-service-with-template
 
   # 2. Your Approuter Application
   - name: my-approuter
@@ -27,9 +27,11 @@ applications:
           }
         ]
     services:
-      - destinationService
-      - connectivityService
-      - xussa-with-role-template
+      - xsuaa-service-with-template
+
+
+
+
 
 
 
