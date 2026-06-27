@@ -1,0 +1,104 @@
+{
+  "VCAP_SERVICES": {
+    "connectivity": [
+      {
+        "binding_guid": "",
+        "binding_name": null,
+        "credentials": {
+          "clientid": "",
+          "clientsecret": "",
+          "credential-type": "",
+          "identityzone": "",
+          "onpremise_proxy_host": "",
+          "onpremise_proxy_http_port": "",
+          "onpremise_proxy_ldap_port": "",
+          "onpremise_proxy_port": "",
+          "onpremise_proxy_rfc_port": "",
+          "onpremise_socks5_proxy_port": "",
+          "region_configuration_id": "",
+          "tenantid": "",
+          "tenantmode": "",
+          "token-type": [],
+          "token_service_domain": "",
+          "token_service_url": "",
+          "uaadomain": "",
+          "url": "",
+          "verificationkey": "",
+          "xsappname": ""
+        },
+        "instance_guid": "",
+        "instance_name": "",
+        "label": "",
+        "name": "",
+        "plan": "",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      }
+    ],
+    "destination": [
+      {
+        "binding_guid": "",
+        "binding_name": null,
+        "credentials": {
+          "clientid": "",
+          "clientsecret": "",
+          "credential-type": "",
+          "identityzone": "",
+          "instanceid": "",
+          "tenantid": "",
+          "tenantmode": "",
+          "token-type": [],
+          "uaadomain": "",
+          "uri": "",
+          "url": "",
+          "verificationkey": "",
+          "xsappname": ""
+        },
+        "instance_guid": "",
+        "instance_name": "",
+        "label": "",
+        "name": "",
+        "plan": "",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      }
+    ],
+    "xsuaa": [
+      {
+        "binding_guid": "",
+        "binding_name": null,
+        "credentials": {
+          "apiurl": "",
+          "clientid": "",
+          "clientsecret": "",
+          "credential-type": "",
+          "identityzone": "",
+          "identityzoneid": "",
+          "sburl": "",
+          "serviceInstanceId": "",
+          "subaccountid": "",
+          "tenantid": "",
+          "tenantmode": "",
+          "uaadomain": "",
+          "url": "",
+          "verificationkey": "",
+          "xsappname": "",
+          "zoneid": ""
+        },
+        "instance_guid": "",
+        "instance_name": "",
+        "label": "",
+        "name": "",
+        "plan": "",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      }
+    ]
+  }
+}

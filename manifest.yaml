@@ -12,7 +12,7 @@ applications:
       - xsuaa-service-with-template
 
   # 2. Your Approuter Application
-  - name: my-approuter
+  - name: my-sap-dashboard
     path: ./approuter # Points to the folder containing your approuter code and package.json
     memory: 128M
     buildpacks:

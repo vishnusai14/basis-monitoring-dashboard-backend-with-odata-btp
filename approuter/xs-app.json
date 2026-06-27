@@ -7,7 +7,7 @@
       "target": "$1",
       "destination": "node-backend-api",
       "authenticationType": "xsuaa",
-      "scope": "$XSAPPNAME.Admin"
+      "scope": "$XSAPPNAME.Viewer"
     },
     {
       "source": "^/(.*)$",
